@@ -2,14 +2,16 @@ package tn.enis.member.entities;
 
 import lombok.*;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@RequiredArgsConstructor
+@DiscriminatorValue("ens")
 public class EnseignantChercheur extends Member {
     @NonNull
     private String grade;
