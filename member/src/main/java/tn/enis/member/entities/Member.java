@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name= "type_mbr", discriminatorType =
+        DiscriminatorType.STRING,length = 3)
 @Getter
 @Setter
 @AllArgsConstructor

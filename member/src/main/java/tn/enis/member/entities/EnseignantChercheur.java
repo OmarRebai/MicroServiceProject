@@ -11,7 +11,9 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class EnseignantChercheur extends Member {
+    @NonNull
     private String grade;
+    @NonNull
     private String etabmlissement;
 
 }
