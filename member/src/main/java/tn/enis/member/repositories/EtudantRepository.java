@@ -1,13 +1,10 @@
 package tn.enis.member.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import tn.enis.member.entities.Etudiant;
-import tn.enis.member.entities.Member;
 
-import java.util.List;
+@Repository
+public interface EtudantRepository extends JpaRepository<Etudiant,Long> {
 
-public interface EtudantRepository extends JpaRepository<Long, Etudiant> {
-    Member findByCin(String cin);
-    List<Member> findByNomStartingWith(String caractere);
-    Member findByEmail(String email);
 }

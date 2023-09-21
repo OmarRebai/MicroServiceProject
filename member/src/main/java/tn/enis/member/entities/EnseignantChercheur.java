@@ -8,9 +8,7 @@ import javax.persistence.Entity;
 @Entity
 @Getter
 @Setter
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@RequiredArgsConstructor
+@NoArgsConstructor
 @DiscriminatorValue("ens")
 public class EnseignantChercheur extends Member {
     @NonNull

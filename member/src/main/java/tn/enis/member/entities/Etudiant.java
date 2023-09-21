@@ -12,9 +12,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@RequiredArgsConstructor
+@NoArgsConstructor
 @DiscriminatorValue("etd")
 public class Etudiant extends Member {
     @NonNull
