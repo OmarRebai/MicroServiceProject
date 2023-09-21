@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 import tn.enis.member.entities.Etudiant;
 
 @Repository
-public interface EtudantRepository extends JpaRepository<Etudiant,Long> {
-
+public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
 }
