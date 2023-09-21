@@ -6,6 +6,8 @@ import lombok.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -18,6 +20,8 @@ public class Etudiant extends Member {
     private Date dateInscription;
     @NonNull
     private String Diplome;
+    @ManyToOne
+    private EnseignantChercheur enseignantChercheur;
     @Builder
     public Etudiant (Long id, String cin, String nom, String prenom, Date dateNaissance, Byte photo, String cv, String email, String password, @NonNull Date dateInscription, @NonNull String diplome) {
         super(id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
