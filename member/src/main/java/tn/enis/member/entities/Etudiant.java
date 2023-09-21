@@ -3,7 +3,6 @@ package tn.enis.member.entities;
 
 import lombok.*;
 
-import org.springframework.lang.NonNull;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -19,5 +18,11 @@ public class Etudiant extends Member {
     private Date dateInscription;
     @NonNull
     private String Diplome;
+    @Builder
+    public Etudiant (Long id, String cin, String nom, String prenom, Date dateNaissance, Byte photo, String cv, String email, String password, @NonNull Date dateInscription, @NonNull String diplome) {
+        super(id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
+        this.dateInscription = dateInscription;
+        Diplome = diplome;
+    }
 
 }
