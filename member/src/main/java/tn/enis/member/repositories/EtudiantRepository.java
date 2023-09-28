@@ -10,4 +10,5 @@ import java.util.List;
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
     List<Etudiant> findByDiplome(String diplome);
     List<Etudiant> findByDiplomeOrderByDateInscriptionDesc(String diplome);
+
 }

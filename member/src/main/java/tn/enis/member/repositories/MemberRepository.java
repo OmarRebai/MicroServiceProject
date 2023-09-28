@@ -11,4 +11,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     List<Member> findByNomStartingWith (String caractere);
 
     Member findByEmail (String email);
+    void deleteMemberById(Long id);
 }
