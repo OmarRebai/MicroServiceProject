@@ -9,7 +9,6 @@ public class EnseignantChercheurService {
     private final EnseignantChercheurRepository enseignantChercheurRepository;
 
     @Autowired
-
     public EnseignantChercheurService (EnseignantChercheurRepository enseignantChercheurRepository) {
         this.enseignantChercheurRepository = enseignantChercheurRepository;
     }
