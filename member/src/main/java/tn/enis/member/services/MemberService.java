@@ -1,13 +1,13 @@
 package tn.enis.member.services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tn.enis.member.entities.EnseignantChercheur;
 import tn.enis.member.entities.Etudiant;
 import tn.enis.member.entities.Member;
 import tn.enis.member.repositories.EnseignantChercheurRepository;
+import tn.enis.member.repositories.EtudiantRepository;
 import tn.enis.member.repositories.MemberRepository;
 
 import java.util.List;
@@ -15,9 +15,10 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class MemberService implements IMemberService{
+public class MemberService implements IMemberService {
     private final MemberRepository memberRepository;
     private final EnseignantChercheurRepository enseignantChercheurRepository;
+    private final EtudiantRepository etudiantRepository;
 
 
     @Override
@@ -34,10 +35,12 @@ public class MemberService implements IMemberService{
     public List<Member> findByNomStartingWith (String caractere) {
         return memberRepository.findByNomStartingWith(caractere);
     }
+
     @Override
     public Member findByCin (String cin) {
         return memberRepository.findByCin(cin);
     }
+
     @Override
     public Member findByEmail (String email) {
         return memberRepository.findByEmail(email);
@@ -45,23 +48,24 @@ public class MemberService implements IMemberService{
 
     @Override
     public List<Member> findByNom (String nom) {
-        return null;
+        return memberRepository.findByNom(nom);
     }
 
     @Override
     public List<Etudiant> findByDiplome (String diplome) {
-        return null;
+        return etudiantRepository.findByDiplome(diplome);
     }
 
     @Override
     public List<EnseignantChercheur> findByGrade (String grade) {
-        return null;
+        return enseignantChercheurRepository.findByGrade(grade);
     }
 
     @Override
     public List<EnseignantChercheur> findByEtablissement (String etablissement) {
-        return null;
+        return enseignantChercheurRepository.findByEtablissement(etablissement);
     }
+
     @Override
     public Member updateMember (Member member) {
         return memberRepository.save(member);

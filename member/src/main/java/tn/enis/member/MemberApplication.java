@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import tn.enis.member.entities.EnseignantChercheur;
 import tn.enis.member.entities.Etudiant;
-import tn.enis.member.services.EnseignantChercheurService;
 import tn.enis.member.services.MemberService;
 
 import java.util.Date;

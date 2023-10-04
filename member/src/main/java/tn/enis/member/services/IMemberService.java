@@ -9,19 +9,20 @@ import java.util.Optional;
 
 public interface IMemberService {
     //Crud sur les membres
-    public Member addMember(Member m);
-    public void deleteMember(Long id) ;
-    public Member updateMember(Member p) ;
-    public Optional<Member> findMember(Long id) ;
-    public List<Member> findAll();
+    Member addMember(Member m);
+    void deleteMember(Long id) ;
+    Member updateMember(Member p) ;
+    Optional<Member> findMember(Long id) ;
+    List<Member> findAll();
     //Filtrage par propriété
-    public Member findByCin(String cin);
-    public Member findByEmail(String email);
-    public List<Member> findByNom(String nom);
+    Member findByCin(String cin);
+    Member findByEmail(String email);
+    List<Member> findByNom(String nom);
     //recherche spécifique des étudiants
-    public List<Etudiant> findByDiplome(String diplome);
+    List<Etudiant> findByDiplome(String diplome);
     //recherche spécifique des enseignants
-    public List<EnseignantChercheur> findByGrade(String grade);
-    public List<EnseignantChercheur> findByEtablissement(String etablissement);
+    List<EnseignantChercheur> findByGrade(String grade);
+    List<EnseignantChercheur> findByEtablissement(String etablissement);
+    List<Member> findByNomStartingWith (String caractere);
 //other ...
 }
