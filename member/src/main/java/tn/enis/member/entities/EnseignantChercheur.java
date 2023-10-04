@@ -18,13 +18,13 @@ public class EnseignantChercheur extends Member {
     @NonNull
     private String grade;
     @NonNull
-    private String etabmlissement;
+    private String etablissement;
     @OneToMany(mappedBy = "enseignantChercheur")
     private List<Etudiant> etudiants=new ArrayList<>();
     @Builder
-    public EnseignantChercheur (String cin, String nom, String prenom, Date dateNaissance, String email, String password, @NonNull String grade, @NonNull String etabmlissement) {
-        super(cin, nom, prenom, dateNaissance, email, password);
+    public EnseignantChercheur (Long id, @NonNull String cin, @NonNull String nom, @NonNull String prenom, @NonNull Date dateNaissance, Byte photo, String cv, @NonNull String email, @NonNull String password, @NonNull String grade, @NonNull String etablissement) {
+        super(id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
         this.grade = grade;
-        this.etabmlissement = etabmlissement;
+        this.etablissement = etablissement;
     }
 }

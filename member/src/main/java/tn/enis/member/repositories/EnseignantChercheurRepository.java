@@ -8,7 +8,7 @@ import tn.enis.member.entities.Etudiant;
 import java.util.List;
 
 @Repository
-public interface EnseignantChercheurRepository extends JpaRepository<Etudiant,Long> {
+public interface EnseignantChercheurRepository extends JpaRepository<EnseignantChercheur,Long> {
     List<EnseignantChercheur> findByGrade(String grade);
     List<EnseignantChercheur>findByEtablissement(String etablissement);
 }

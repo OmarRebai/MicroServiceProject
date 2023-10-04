@@ -16,20 +16,20 @@ public class EtudiantService {
         this.etudiantRepository = etudiantRepository;
     }
 
-    public Etudiant addEtudiant (Etudiant etudiant) {
-        return etudiantRepository.save(etudiant);
-    }
-
-    public List<Etudiant> findAllEtudiants () {
-        return etudiantRepository.findAll();
-    }
-
-    public List<Etudiant> findByDiplome (String diplome) {
-        return etudiantRepository.findByDiplome(diplome);
-    }
-
-    public List<Etudiant> findByDiplomeOrderByDateInscriptionDesc (String diplome) {
-        return etudiantRepository.findByDiplomeOrderByDateInscriptionDesc(diplome);
-    }
+//    public Etudiant addEtudiant (Etudiant etudiant) {
+//        return etudiantRepository.save(etudiant);
+//    }
+//
+//    public List<Etudiant> findAllEtudiants () {
+//        return etudiantRepository.findAll();
+//    }
+//
+//    public List<Etudiant> findByDiplome (String diplome) {
+//        return etudiantRepository.findByDiplome(diplome);
+//    }
+//
+//    public List<Etudiant> findByDiplomeOrderByDateInscriptionDesc (String diplome) {
+//        return etudiantRepository.findByDiplomeOrderByDateInscriptionDesc(diplome);
+//    }
 
 }
