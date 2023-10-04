@@ -1,6 +1,6 @@
 package tn.enis.member.services;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tn.enis.member.entities.EnseignantChercheur;
@@ -14,12 +14,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class MemberService implements IMemberService {
     private final MemberRepository memberRepository;
     private final EnseignantChercheurRepository enseignantChercheurRepository;
     private final EtudiantRepository etudiantRepository;
 
+    @Autowired
+    public MemberService (MemberRepository memberRepository, EnseignantChercheurRepository enseignantChercheurRepository, EtudiantRepository etudiantRepository) {
+        this.memberRepository = memberRepository;
+        this.enseignantChercheurRepository = enseignantChercheurRepository;
+        this.etudiantRepository = etudiantRepository;
+    }
 
     @Override
     public Member addMember (Member member) {
@@ -79,6 +84,16 @@ public class MemberService implements IMemberService {
     @Override
     public List<Member> findAll () {
         return memberRepository.findAll();
+    }
+
+    public void affecterEtudiantEnseignant(Long idEtudiant,Long idEnseignant){
+        Etudiant etudiant=etudiantRepository.findById(idEtudiant).get();
+        EnseignantChercheur enseignantChercheur=enseignantChercheurRepository.findById(idEnseignant).get();
+        etudiant.setEncadrant(enseignantChercheur);
+        etudiantRepository.save(etudiant);
+    }
+    public List<Etudiant> findEtudiantByEncadrant(EnseignantChercheur enseignantChercheur){
+        return etudiantRepository.findByEncadrant(enseignantChercheur);
     }
 
 }

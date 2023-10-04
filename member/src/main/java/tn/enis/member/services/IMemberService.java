@@ -24,5 +24,7 @@ public interface IMemberService {
     List<EnseignantChercheur> findByGrade(String grade);
     List<EnseignantChercheur> findByEtablissement(String etablissement);
     List<Member> findByNomStartingWith (String caractere);
+    void affecterEtudiantEnseignant(Long idEtudiant,Long idEnseignant);
+    List<Etudiant> findEtudiantByEncadrant(EnseignantChercheur enseignantChercheur);
 //other ...
 }

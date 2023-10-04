@@ -3,10 +3,8 @@ package tn.enis.member.entities;
 
 import lombok.*;
 
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.Date;
 
@@ -19,14 +17,15 @@ public class Etudiant extends Member {
     @NonNull
     private Date dateInscription;
     @NonNull
-    private String Diplome;
+    private String diplome;
     @ManyToOne
-    private EnseignantChercheur enseignantChercheur;
+    private EnseignantChercheur encadrant;
+
     @Builder
-    public Etudiant (Long id, String cin, String nom, String prenom, Date dateNaissance, Byte photo, String cv, String email, String password, @NonNull Date dateInscription, @NonNull String diplome) {
+    public Etudiant (Long id, @NonNull String cin, @NonNull String nom, @NonNull String prenom, @NonNull Date dateNaissance, Byte photo, String cv, @NonNull String email, @NonNull String password, @NonNull Date dateInscription, @NonNull String diplome, EnseignantChercheur encadrant) {
         super(id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
         this.dateInscription = dateInscription;
-        Diplome = diplome;
+        this.diplome = diplome;
+        this.encadrant = encadrant;
     }
-
 }

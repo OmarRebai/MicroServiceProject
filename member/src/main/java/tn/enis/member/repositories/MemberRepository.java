@@ -15,4 +15,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     void deleteMemberById (Long id);
 
     List<Member> findByNom (String nom);
+
 }
