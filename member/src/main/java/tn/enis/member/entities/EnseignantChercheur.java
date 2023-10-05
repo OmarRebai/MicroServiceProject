@@ -19,7 +19,7 @@ public class EnseignantChercheur extends Member {
     private String grade;
     @NonNull
     private String etablissement;
-    @OneToMany(mappedBy = "enseignantChercheur")
+    @OneToMany(mappedBy = "encadrant")
     private List<Etudiant> etudiants=new ArrayList<>();
     @Builder
     public EnseignantChercheur (Long id, @NonNull String cin, @NonNull String nom, @NonNull String prenom, @NonNull Date dateNaissance, Byte photo, String cv, @NonNull String email, @NonNull String password, @NonNull String grade, @NonNull String etablissement) {
