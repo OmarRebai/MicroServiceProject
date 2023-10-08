@@ -4,13 +4,13 @@ package tn.enis.member.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tn.enis.member.entities.Member;
 import tn.enis.member.services.MemberService;
 
 import java.util.List;
 import java.util.Optional;
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/members")
@@ -32,7 +32,7 @@ public class MemberController {
     }
 
     @PostMapping
-    public ResponseEntity<Member> addMember (@Valid @RequestBody Member member) {
+    public ResponseEntity<Member> addMember (@Validated @RequestBody Member member) {
         Member newClient = memberService.addMember(member);
         return new ResponseEntity<>(newClient, HttpStatus.CREATED);
     }

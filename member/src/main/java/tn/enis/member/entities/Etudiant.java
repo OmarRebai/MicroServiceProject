@@ -1,12 +1,13 @@
 package tn.enis.member.entities;
 
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import java.util.Date;
+
 @Entity
 @Getter
 @Setter

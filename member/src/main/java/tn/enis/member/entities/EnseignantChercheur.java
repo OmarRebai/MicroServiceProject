@@ -1,10 +1,10 @@
 package tn.enis.member.entities;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

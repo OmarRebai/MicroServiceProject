@@ -1,4 +1,4 @@
-package tn.enis.configservice;
+package tn.enis.ConfigService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
