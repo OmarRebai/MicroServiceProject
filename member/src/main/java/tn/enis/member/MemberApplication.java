@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import tn.enis.member.entities.EnseignantChercheur;
 import tn.enis.member.entities.Etudiant;
 import tn.enis.member.services.MemberService;
@@ -14,6 +15,7 @@ import java.util.Date;
 @SpringBootApplication
 @EntityScan(basePackages = "tn.enis.member.entities")
 @AllArgsConstructor
+@EnableDiscoveryClient
 public class MemberApplication implements CommandLineRunner {
 	MemberService memberService;
 	public static void main(String[] args) {
