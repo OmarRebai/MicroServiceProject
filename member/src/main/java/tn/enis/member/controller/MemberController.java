@@ -49,16 +49,6 @@ public class MemberController {
         return new ResponseEntity<>(updatedMember, HttpStatus.OK);
     }
 
-//    @GetMapping("/fullmember/{id}")
-//    public Member findAFullMember(@PathVariable(name="id") Long id)
-//    {
-//
-//        Optional<Member> mbr=memberService.findMember(id);
-//
-//        mbr.get().setPubs(memberService.findPublicationparauteur(id));
-//
-//        return mbr.get();
-//    }
 
     @GetMapping("/fullmember/{id}")
     public Member findAFullMember(@PathVariable(name="id") Long id)
@@ -67,6 +57,7 @@ public class MemberController {
         Optional<Member> mbr=memberService.findMember(id);
         if(mbr.isPresent()){
             mbr.get().setPubs(memberService.findPublicationParAuteur(id));
+            return mbr.get();
         }
         return null;
     }
