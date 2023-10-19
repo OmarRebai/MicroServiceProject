@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Outil implements Serializable {
@@ -17,4 +16,11 @@ public class Outil implements Serializable {
     private Date date;
     @NonNull
     private String source;
+
+    @Builder
+    public Outil (Long id, @NonNull Date date, @NonNull String source) {
+        this.id = id;
+        this.date = date;
+        this.source = source;
+    }
 }
