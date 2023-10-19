@@ -27,25 +27,25 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Outil>> getOutilById (@PathVariable Long id) {
-        Optional<Outil> member = outilService.findMember(id);
+        Optional<Outil> member = outilService.findOutil(id);
         return new ResponseEntity<>(member, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Outil> addOutil (@Validated @RequestBody Outil outil) {
-        Outil newClient = outilService.addMember(outil);
+        Outil newClient = outilService.addOutil(outil);
         return new ResponseEntity<>(newClient, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteOutil (@PathVariable("id") Long id) {
-        outilService.deleteMember(id);
+        outilService.deleteOutil(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<Outil> updateOutil (@RequestBody Outil outil) {
-        Outil updatedOutil = outilService.updateMember(outil);
+        Outil updatedOutil = outilService.updateOutil(outil);
         return new ResponseEntity<>(updatedOutil, HttpStatus.OK);
     }
 }

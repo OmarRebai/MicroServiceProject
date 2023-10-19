@@ -6,6 +6,7 @@ import tn.enis.outil.entities.Outil;
 import java.util.List;
 
 public interface OutilRepository extends JpaRepository<Outil, Long> {
+    void deleteOutilById (Long id);
 //    Outil findByCin (String cin);
 //
 //    List<Outil> findByNomStartingWith (String caractere);

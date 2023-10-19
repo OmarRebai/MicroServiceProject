@@ -16,27 +16,27 @@ public class OutilService implements IOutilService {
 
 
     @Override
-    public Outil addOutil (Outil m) {
-        return null;
+    public Outil addOutil (Outil outil) {
+        return outilRepository.save(outil);
     }
 
     @Override
     public void deleteOutil (Long id) {
-
+        outilRepository.deleteOutilById(id);
     }
 
     @Override
-    public Outil updateOutil (Outil p) {
-        return null;
+    public Outil updateOutil (Outil outil) {
+        return outilRepository.save(outil);
     }
 
     @Override
     public Optional<Outil> findOutil (Long id) {
-        return Optional.empty();
+        return outilRepository.findById(id);
     }
 
     @Override
     public List<Outil> findAll () {
-        return null;
+        return outilRepository.findAll();
     }
 }
