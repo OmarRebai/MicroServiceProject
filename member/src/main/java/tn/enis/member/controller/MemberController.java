@@ -48,4 +48,14 @@ public class MemberController {
         Member updatedMember = memberService.updateMember(member);
         return new ResponseEntity<>(updatedMember, HttpStatus.OK);
     }
+
+    @GetMapping("/fullmember/{id}")
+    public Member findAFullMember(@PathVariable(name="id") Long id)
+    {
+
+        Member mbr=memberService.findMember(id).get();
+        mbr.setPubs(memberService.findPublicationparauteur(id).get());
+
+        return mbr;
+    }
 }

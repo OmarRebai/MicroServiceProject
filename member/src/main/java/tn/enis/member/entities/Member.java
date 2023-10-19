@@ -1,7 +1,10 @@
 package tn.enis.member.entities;
 import jakarta.persistence.*;
 import lombok.*;
+import tn.enis.member.beans.PublicationBean;
+
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -29,4 +32,6 @@ public abstract class Member implements Serializable {
     private String email;
     @NonNull
     private String password;
+    @Transient
+    Collection<PublicationBean> pubs;
 }

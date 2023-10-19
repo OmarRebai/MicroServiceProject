@@ -1,28 +1,36 @@
 package tn.enis.member.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tn.enis.member.entities.EnseignantChercheur;
-import tn.enis.member.entities.Etudiant;
-import tn.enis.member.entities.Member;
+import tn.enis.member.beans.PublicationBean;
+import tn.enis.member.entities.*;
+import tn.enis.member.proxies.PublicationProxyService;
 import tn.enis.member.repositories.EnseignantChercheurRepository;
 import tn.enis.member.repositories.EtudiantRepository;
+import tn.enis.member.repositories.MemberPubRepository;
 import tn.enis.member.repositories.MemberRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Service
 public class MemberService implements IMemberService {
     private final MemberRepository memberRepository;
+    private final MemberPubRepository memberPubRepository;
     private final EnseignantChercheurRepository enseignantChercheurRepository;
     private final EtudiantRepository etudiantRepository;
+    private final PublicationProxyService proxyService;
+
 
     @Autowired
-    public MemberService (MemberRepository memberRepository, EnseignantChercheurRepository enseignantChercheurRepository, EtudiantRepository etudiantRepository) {
+    public MemberService (MemberRepository memberRepository, MemberPubRepository memberPubRepository, EnseignantChercheurRepository enseignantChercheurRepository, EtudiantRepository etudiantRepository, PublicationProxyService proxyService) {
         this.memberRepository = memberRepository;
+        this.memberPubRepository = memberPubRepository;
         this.enseignantChercheurRepository = enseignantChercheurRepository;
         this.etudiantRepository = etudiantRepository;
+        this.proxyService = proxyService;
     }
 
     @Override
@@ -83,6 +91,29 @@ public class MemberService implements IMemberService {
     @Override
     public List<Etudiant> findEtudiantByEncadrant(EnseignantChercheur enseignantChercheur){
         return etudiantRepository.findByEncadrant(enseignantChercheur);
+    }
+
+    @Override
+    public void affecterauteurTopublication(Long idauteur, Long idpub)
+    {
+        Member mbr= memberRepository.findById(idauteur).get();
+        Member_Publication mbs= new Member_Publication();
+        mbs.setAuteur(mbr);
+        mbs.setId(new Member_Pub_Ids(idpub, idauteur));
+        memberPubRepository.save(mbs);
+    }
+    @Override
+    public List<ResponseEntity<Optional<PublicationBean>>> findPublicationparauteur(Long idauteur) {
+        List<ResponseEntity<Optional<PublicationBean>>> pubs=new ArrayList<ResponseEntity<Optional<PublicationBean>>>();
+        Member auteur= memberRepository.findById(idauteur).get();
+        List< Member_Publication>
+                idpubs=memberPubRepository.findByAuteur(auteur);
+        idpubs.forEach(s->{
+                    System.out.println(s);
+                    pubs.add(proxyService.getPublicationById(s.getId().getPublication_id()));
+                }
+        );
+        return pubs;
     }
 
 }

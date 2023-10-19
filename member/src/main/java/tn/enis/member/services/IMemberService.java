@@ -1,5 +1,7 @@
 package tn.enis.member.services;
 
+import org.springframework.http.ResponseEntity;
+import tn.enis.member.beans.PublicationBean;
 import tn.enis.member.entities.EnseignantChercheur;
 import tn.enis.member.entities.Etudiant;
 import tn.enis.member.entities.Member;
@@ -26,5 +28,6 @@ public interface IMemberService {
     List<Member> findByNomStartingWith (String caractere);
     void affecterEtudiantEnseignant(Long idEtudiant,Long idEnseignant);
     List<Etudiant> findEtudiantByEncadrant(EnseignantChercheur enseignantChercheur);
-//other ...
+    void affecterauteurTopublication(Long idauteur, Long idpub);
+    List<ResponseEntity<Optional<PublicationBean>>> findPublicationparauteur (Long idauteur);
 }
