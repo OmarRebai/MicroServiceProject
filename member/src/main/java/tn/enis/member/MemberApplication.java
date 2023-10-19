@@ -39,6 +39,7 @@ public class MemberApplication implements CommandLineRunner {
 				.prenom("youssef)")
 				.diplome("blockhain")
 				.build();
+
 		memberService.addMember(etd1);
 
 		Etudiant etd2=Etudiant.builder()
@@ -56,7 +57,8 @@ public class MemberApplication implements CommandLineRunner {
 		memberService.addMember(etd2);
 
 
-		EnseignantChercheur ens1 = EnseignantChercheur.builder().cin("123458")
+		EnseignantChercheur ens1 = EnseignantChercheur.builder()
+				.cin("123458")
 				.nom("firas")
 				.prenom("chakroun")
 				.email("ens1@gmail.com")
@@ -66,9 +68,12 @@ public class MemberApplication implements CommandLineRunner {
 				.grade("grade")
 				.cv("cv2")
 				.build();
+
+
 		memberService.addMember(ens1);
 
-		EnseignantChercheur ens2 = EnseignantChercheur.builder().cin("123459")
+		EnseignantChercheur ens2 = EnseignantChercheur.builder()
+				.cin("123459")
 				.nom("firas")
 				.prenom("chakroun")
 				.email("ens1@gmail.com")
@@ -79,5 +84,8 @@ public class MemberApplication implements CommandLineRunner {
 				.cv("cv2")
 				.build();
 		memberService.addMember(ens2);
+		memberService.affecterEtudiantEnseignant(etd1.getId(), ens1.getId());
+		memberService.affecterAuteurToPublication(ens1.getId(), 1L);
+		memberService.affecterAuteurToPublication(ens1.getId(), 2L);
 	}
 }

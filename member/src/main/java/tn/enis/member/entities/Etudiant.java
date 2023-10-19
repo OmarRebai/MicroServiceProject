@@ -5,7 +5,9 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
+import tn.enis.member.beans.PublicationBean;
 
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -22,8 +24,9 @@ public class Etudiant extends Member {
     private EnseignantChercheur encadrant;
 
     @Builder
-    public Etudiant (Long id, @NonNull String cin, @NonNull String nom, @NonNull String prenom, @NonNull Date dateNaissance, Byte photo, String cv, @NonNull String email, @NonNull String password, @NonNull Date dateInscription, @NonNull String diplome, EnseignantChercheur encadrant) {
-        super(id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
+
+    public Etudiant (Collection<PublicationBean> pubs, Long id, @NonNull String cin, @NonNull String nom, @NonNull String prenom, @NonNull Date dateNaissance, Byte photo, String cv, @NonNull String email, @NonNull String password, @NonNull Date dateInscription, @NonNull String diplome, EnseignantChercheur encadrant) {
+        super(pubs, id, cin, nom, prenom, dateNaissance, photo, cv, email, password);
         this.dateInscription = dateInscription;
         this.diplome = diplome;
         this.encadrant = encadrant;

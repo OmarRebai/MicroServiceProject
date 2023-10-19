@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import tn.enis.evenement.entities.Publication;
 import tn.enis.evenement.services.PublicationService;
 
@@ -16,27 +17,38 @@ import java.util.Date;
 @AllArgsConstructor
 @EnableDiscoveryClient
 public class PublicationApplication implements CommandLineRunner {
-	PublicationService evenementService;
-	public static void main(String[] args) {
-		SpringApplication.run(PublicationApplication.class, args);
-	}
+    PublicationService publicationService;
 
-	@Override
-	public void run (String... args) throws Exception {
-		Publication publication = Publication.builder()
-				.type("fgh")
-				.sourcePdf("fghj")
-				.lien("ghj")
-				.date(new Date())
-				.build();
-		evenementService.addPublication(publication);
-		Publication publication2 = Publication.builder()
-				.type("dfdg")
-				.sourcePdf("dsfdgfh")
-				.lien("dsfd")
-				.date(new Date())
-				.build();
-		evenementService.addPublication(publication2);
+    public static void main (String[] args) {
+        SpringApplication.run(PublicationApplication.class, args);
+    }
 
-	}
+    @Override
+    public void run (String... args) throws Exception {
+
+        Publication publication = Publication.builder()
+                .type("article")
+                .titre("an approach for testing soa systems")
+                .lien("lien")
+                .date(new Date())
+                .sourcePdf("pdf")
+                .build();
+        publicationService.addPublication(publication);
+        Publication publication2 = Publication.builder()
+                .type("chapitre de livre")
+                .titre("towards cloud computing :issues and challenges")
+                .lien("lien")
+                .date(new Date())
+                .sourcePdf("pdf")
+                .build();
+        publicationService.addPublication(publication2);
+        Publication publication3 = Publication.builder()
+                .type("article")
+                .titre("introducing blochain systems")
+                .lien("lien")
+                .date(new Date())
+                .sourcePdf("pdf")
+                .build();
+        publicationService.addPublication(publication3);
+    }
 }

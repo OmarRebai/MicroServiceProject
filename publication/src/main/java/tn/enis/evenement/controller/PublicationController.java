@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/evenements")
+@RequestMapping("/api/v1/publications")
 @CrossOrigin("*")
 @AllArgsConstructor
-public class EvenementController {
+public class PublicationController {
     private final PublicationService publicationService;
 
     @GetMapping
