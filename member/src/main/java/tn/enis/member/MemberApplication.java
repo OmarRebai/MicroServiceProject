@@ -59,9 +59,9 @@ public class MemberApplication implements CommandLineRunner {
 
 		EnseignantChercheur ens1 = EnseignantChercheur.builder()
 				.cin("123458")
-				.nom("firas")
-				.prenom("chakroun")
-				.email("ens1@gmail.com")
+				.nom("Rebai")
+				.prenom("Omar")
+				.email("omar.rebai@gmail.com")
 				.password("pass2")
 				.etablissement("enis")
 				.dateNaissance(new Date())
