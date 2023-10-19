@@ -9,21 +9,28 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Evenement implements Serializable {
+public class Publication implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NonNull
+    private String type;
+    @NonNull
     private String titre;
+
+    @NonNull
+    private String lien;
     @NonNull @Temporal(TemporalType.DATE)
     private Date date;
     @NonNull
-    private String lieu;
+    private String sourcePdf;
 
     @Builder
-    public Evenement (Long id, @NonNull String titre, @NonNull Date date, @NonNull String lieu) {
+    public Publication (Long id, @NonNull String type, @NonNull String titre, @NonNull String lien, @NonNull Date date, @NonNull String sourcePdf) {
         this.id = id;
+        this.type = type;
         this.titre = titre;
+        this.lien = lien;
         this.date = date;
-        this.lieu = lieu;
+        this.sourcePdf = sourcePdf;
     }
 }

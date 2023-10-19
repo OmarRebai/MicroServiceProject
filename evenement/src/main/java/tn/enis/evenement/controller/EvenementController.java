@@ -13,39 +13,39 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/outils")
+@RequestMapping("/api/v1/evenements")
 @CrossOrigin("*")
 @AllArgsConstructor
-public class OutilController {
-    private final EvenementService outilService;
+public class EvenementController {
+    private final EvenementService evenementService;
 
     @GetMapping
-    public ResponseEntity<List<Evenement>> getAllOutils () {
-        List<Evenement> evenements = outilService.findAll();
+    public ResponseEntity<List<Evenement>> getAllEvenements () {
+        List<Evenement> evenements = evenementService.findAll();
         return new ResponseEntity<>(evenements, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Evenement>> getOutilById (@PathVariable Long id) {
-        Optional<Evenement> member = outilService.findEvenement(id);
+    public ResponseEntity<Optional<Evenement>> getEvenementById (@PathVariable Long id) {
+        Optional<Evenement> member = evenementService.findEvenement(id);
         return new ResponseEntity<>(member, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Evenement> addOutil (@Validated @RequestBody Evenement evenement) {
-        Evenement newClient = outilService.addEvenement(evenement);
+    public ResponseEntity<Evenement> addEvenement(@Validated @RequestBody Evenement evenement) {
+        Evenement newClient = evenementService.addEvenement(evenement);
         return new ResponseEntity<>(newClient, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOutil (@PathVariable("id") Long id) {
-        outilService.deleteEvenement(id);
+    public ResponseEntity<?> deleteEvenement (@PathVariable("id") Long id) {
+        evenementService.deleteEvenement(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<Evenement> updateOutil (@RequestBody Evenement evenement) {
-        Evenement updatedEvenement = outilService.updateEvenement(evenement);
+    public ResponseEntity<Evenement> updateEvenement (@RequestBody Evenement evenement) {
+        Evenement updatedEvenement = evenementService.updateEvenement(evenement);
         return new ResponseEntity<>(updatedEvenement, HttpStatus.OK);
     }
 }
