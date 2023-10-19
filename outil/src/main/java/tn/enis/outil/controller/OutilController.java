@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/members")
+@RequestMapping("/api/v1/outils")
 @CrossOrigin("*")
 @AllArgsConstructor
-public class MemberController {
+public class OutilController {
     private final OutilService outilService;
 
     @GetMapping
