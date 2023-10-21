@@ -12,5 +12,5 @@ import java.util.Optional;
 @FeignClient(name = "EVENEMENT-SERVICE")
 public interface EvenementProxyService {
     @GetMapping("/api/v1/evenements/{id}")
-    ResponseEntity<Optional<EvenementBean>> getEvenementById (@PathVariable Long id);
+    EvenementBean getEvenementById (@PathVariable Long id);
 }

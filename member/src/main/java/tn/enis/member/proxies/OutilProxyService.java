@@ -11,5 +11,5 @@ import java.util.Optional;
 @FeignClient(name = "OUTIL-SERVICE")
 public interface OutilProxyService {
     @GetMapping("/api/v1/outils/{id}")
-    ResponseEntity<Optional<OutilBean>> getOutilById (@PathVariable Long id);
+    OutilBean getOutilById (@PathVariable Long id);
 }
